@@ -1,0 +1,286 @@
+﻿<!doctype html>
+<html lang="zh-tw">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>會員登入</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .top-bar {
+            font-size: 0.85rem;
+        }
+
+        footer {
+            margin-top: auto;
+        }
+
+        .carousel-item img {
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .hover-effect {
+            transition: all 0.3s ease-in-out;
+            border: 1px solid rgba(0,0,0,.125);
+        }
+
+            .hover-effect:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important;
+                border-color: #495057;
+            }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body top-bar" data-bs-theme="dark">
+        <div class="container">
+            <ul class="navbar-nav ms-auto flex-row">
+                <li class="nav-item"><a class="nav-link px-2" href="#"><i class="bi bi-facebook"></i> 粉絲專頁</a></li>
+                <li class="nav-item"><a class="nav-link px-2 active text-white" href="login.html">會員登入</a></li>
+                <li class="nav-item"><a class="nav-link px-2" href="register.html">註冊</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-lg bg-primary navbar-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="bi bi-airplane-engines-fill"></i> Travel Website
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link fw-bold" href="index.html">首頁</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="about.html">關於我</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="feature.html">特色行程</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="price.html">價格方案</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="contact.html">聯絡我們</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-4">
+
+        <div id="travelCarousel" class="carousel slide position-relative rounded overflow-hidden shadow" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#travelCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#travelCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#travelCarousel" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="3000">
+                    <img src="https://picsum.photos/1200/500?random=1" class="d-block w-100" alt="Travel 1">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>探索世界的美好</h5>
+                        <p>加入我們，體驗前所未有的旅程。</p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="https://picsum.photos/1200/500?random=2" class="d-block w-100" alt="Travel 2">
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="https://picsum.photos/1200/500?random=3" class="d-block w-100" alt="Travel 3">
+                </div>
+            </div>
+
+            <div class="d-none d-lg-block position-absolute top-50 start-50 translate-middle bg-white p-4 rounded shadow"
+                 style="width:350px; z-index:10; opacity:0.95;">
+                <h5 class="text-center mb-4 text-primary fw-bold">
+                    <i class="bi bi-person-circle"></i> 會員登入
+                </h5>
+                <form id="loginForm">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="bi bi-person-badge"></i></span>
+                        <input type="text" class="form-control" id="loginId" placeholder="帳號 (Member ID)" required>
+                    </div>
+
+                    <div class="input-group mb-4">
+                        <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                        <input type="password" class="form-control" id="loginPassword" placeholder="密碼" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 fw-bold mb-2">登入</button>
+
+                    <div class="text-center">
+                        <a href="register.html" class="text-decoration-none small text-muted hover-underline">
+                            還沒有帳號？點此註冊
+                        </a>
+                    </div>
+                </form>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#travelCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#travelCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+
+        <div class="d-lg-none mt-3">
+            <div class="card shadow-sm border-primary">
+                <div class="card-header bg-primary text-white text-center">會員登入</div>
+                <div class="card-body">
+                    <form>
+                        <input class="form-control mb-3" placeholder="帳號">
+                        <input type="password" class="form-control mb-3" placeholder="密碼">
+                        <button class="btn btn-primary w-100">登入</button>
+                        <div class="text-center mt-2">
+                            <a href="#" class="small text-muted">前往註冊</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <br><br>
+
+        <hr class="my-5 text-secondary">
+
+        <div class="row">
+            <div class="col-lg-8 col-12 mb-3">
+                <h4 class="mb-3 text-primary">常見問題 (FAQ)</h4>
+                <div class="accordion shadow-sm" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                <strong>Q1: 如何報名參加團體旅遊？</strong>
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show">
+                            <div class="accordion-body">請先註冊會員，選擇您喜歡的行程後，點擊「立即報名」並完成線上付款即可。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-12">
+                <div class="p-4 bg-white border rounded shadow-sm">
+                    <h5 class="text-primary fw-bold mb-3">最新消息</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><i class="bi bi-megaphone text-warning me-2"></i> 冬季早鳥優惠開跑！</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="bg-dark text-white pt-5 pb-3 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-primary fw-bold mb-3">Travel Website</h5>
+                    <p class="text-secondary small">我們致力於提供最優質的國內外旅遊體驗。</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">網站導覽</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="about.html" class="text-decoration-none text-secondary">關於我們</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">常見問題</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">聯絡我們</h5>
+                    <ul class="list-unstyled text-secondary">
+                        <li class="mb-3"><span class="fw-bold text-white">客服專線: 07-6678888</span></li>
+                        <li class="mb-3"><i class="bi bi-envelope-fill text-primary me-2"></i> khus@travel.com</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary">
+            <div class="text-center small text-secondary">&copy; 2025 Travel Website. All Rights Reserved.</div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="notificationModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="modalTitle">通知</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modalMessage"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                    <a href="register.html" class="btn btn-primary d-none" id="registerBtn">前往註冊</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const loginForm = document.getElementById('loginForm');
+            const modalElement = document.getElementById('notificationModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalMessage = document.getElementById('modalMessage');
+            const registerBtn = document.getElementById('registerBtn');
+            const notificationModal = new bootstrap.Modal(modalElement);
+
+            loginForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                // 1. 取得使用者輸入的帳號與密碼
+                const loginId = document.getElementById('loginId').value.trim();
+                const loginPassword = document.getElementById('loginPassword').value.trim();
+
+                // 2. 從 LocalStorage 取得會員資料庫
+                let registeredMembers = JSON.parse(localStorage.getItem('members_db')) || [];
+
+                // 3. 搜尋是否有此會員 (比對 ID)
+                const foundMember = registeredMembers.find(member => member.id === loginId);
+
+                // 重置按鈕顯示狀態
+                registerBtn.classList.add('d-none');
+
+                if (foundMember) {
+                    // === 狀況 A: 找到會員 (登入成功) ===
+
+                    // 儲存當前使用者
+                    localStorage.setItem('currentUser', loginId);
+
+                    modalTitle.innerHTML = '<i class="bi bi-check-circle-fill text-success"></i> 登入成功';
+                    modalMessage.innerHTML = `
+                            <p class="fs-5">歡迎回來，<strong>${foundMember.name}</strong>！</p>
+                            <p class="text-muted">即將為您導向特色行程頁面...</p>
+                        `;
+
+                    // 1.5秒後自動跳轉到特色行程頁
+                    setTimeout(function () {
+                        window.location.href = 'feature.html';
+                    }, 1500);
+
+                } else {
+                    // === 狀況 B: 沒找到會員 (尚未註冊) ===
+                    modalTitle.innerHTML = '<i class="bi bi-exclamation-circle-fill text-danger"></i> 登入失敗';
+                    modalMessage.innerHTML = `
+                            <p class="fs-5 text-danger fw-bold">此帳號尚未註冊！</p>
+                            <p class="text-muted">我們找不到帳號 <strong>${loginId}</strong> 的資料。<br>請先加入會員。</p>
+                        `;
+                    registerBtn.classList.remove('d-none');
+                }
+
+                notificationModal.show();
+            });
+        });
+    </script>
+
+</body>
+</html>

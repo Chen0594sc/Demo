@@ -1,0 +1,275 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>關於我</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .top-bar {
+            font-size: 0.85rem;
+        }
+
+        footer {
+            margin-top: auto;
+        }
+
+        .carousel-item img {
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .hover-effect {
+            transition: all 0.3s ease-in-out;
+            border: 1px solid rgba(0,0,0,.125);
+        }
+
+            .hover-effect:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important;
+                border-color: #495057;
+            }
+
+        .search-tabs {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            background-color: #fff;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .search-tab-item {
+            flex: 1;
+            text-align: center;
+            padding: 15px 0;
+            cursor: pointer;
+            color: #666;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+            .search-tab-item:hover {
+                background-color: #f9f9f9;
+                color: #d32f2f;
+            }
+
+            .search-tab-item.active {
+                color: #d32f2f;
+                border-bottom: 3px solid #d32f2f;
+                font-weight: bold;
+            }
+
+        .custom-input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .custom-label {
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            background-color: #fff;
+            padding: 0 5px;
+            font-size: 0.85rem;
+            color: #d32f2f;
+            z-index: 2;
+            font-weight: bold;
+        }
+
+            .custom-label.text-gray {
+                color: #6c757d;
+            }
+
+        .form-control-custom {
+            width: 100%;
+            height: 50px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            padding: 10px 15px;
+            font-size: 1rem;
+            color: #333;
+            background-color: #fff;
+        }
+
+            .form-control-custom:focus {
+                outline: none;
+                border-color: #d32f2f;
+                box-shadow: 0 0 0 0.2rem rgba(211, 47, 47, 0.1);
+            }
+
+        .btn-search-red {
+            background-color: #d32f2f;
+            color: white;
+            width: 100%;
+            padding: 12px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+            .btn-search-red:hover {
+                background-color: #b71c1c;
+            }
+
+        .date-separator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d32f2f;
+            font-weight: bold;
+        }
+
+        .hot-links a {
+            color: #666;
+            text-decoration: none;
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+
+            .hot-links a:hover {
+                color: #d32f2f;
+                text-decoration: underline;
+            }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body top-bar" data-bs-theme="dark">
+        <div class="container">
+            <ul class="navbar-nav ms-auto flex-row">
+                <li class="nav-item"><a class="nav-link px-2" href="#"><i class="bi bi-facebook"></i> 粉絲專頁</a></li>
+                <li class="nav-item"><a class="nav-link px-2" href="login.html">會員登入</a></li>
+                <li class="nav-item"><a class="nav-link px-2" href="register.html">註冊</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-lg bg-primary navbar-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="bi bi-airplane-engines-fill"></i> Travel Website
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link fw-bold" href="index.html">首頁</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-bold" href="about.html">關於我</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="feature.html">特色行程</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="price.html">價格方案</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="contact.html">聯絡我們</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h2 class="fw-bold mb-4">
+                    Travel Website 致力於帶給您<br class="d-md-none">最真實而精彩的旅行體驗
+                </h2>
+
+                <div style="width: 60px; height: 3px; background-color: #0d6efd; margin: 0 auto 20px auto;"></div>
+
+                <p class="text-secondary lh-lg fs-5">
+                    我們不只提供熱門景點與交通資訊，更精選在地文化、隱藏美食與特色活動，讓每一次旅程都充滿驚喜。
+                    無論是自由行的探索，還是舒適的套裝行程，這裡都是您規劃旅程的一站式平台。
+                    透過互動地圖、旅客分享與專業建議，您可以輕鬆打造專屬於自己的旅行故事。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <hr class="my-5 text-secondary">
+
+    <div class="row">
+        <div class="col-lg-8 col-12 mb-3">
+            <h4 class="mb-3 text-primary">常見問題 (FAQ)</h4>
+            <div class="accordion shadow-sm" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                            <strong>Q1: 如何報名參加團體旅遊？</strong>
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            請先註冊會員，選擇您喜歡的行程後，點擊「立即報名」並完成線上付款即可。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-12">
+            <div class="p-4 bg-white border rounded shadow-sm">
+                <h5 class="text-primary fw-bold mb-3">最新消息</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><i class="bi bi-megaphone text-warning me-2"></i> 冬季早鳥優惠開跑！</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer class="bg-dark text-white pt-5 pb-3 mt-5">
+        <div class="container"></div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <h5 class="text-primary fw-bold mb-3">Travel Website</h5>
+                <p class="text-secondary small">我們致力於提供最優質的國內外旅遊體驗。</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h5 class="mb-3">網站導覽</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="about.html" class="text-decoration-none text-secondary hover-white">關於我們</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary hover-white">常見問題</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h5 class="mb-3">聯絡我們</h5>
+                <ul class="list-unstyled text-secondary">
+                    <li class="mb-3"><i class="bi bi-telephone-fill text-primary me-2 fs-5"></i> <span class="fw-bold text-white">07-6678888</span></li>
+                    <li class="mb-3"><i class="bi bi-envelope-fill text-primary me-2"></i> khus@travel.com</li>
+                    <li class="mb-3">
+                        <i class="bi bi-globe text-primary me-2"></i>
+                        <a href="#" class="text-secondary text-decoration-none footer-link">www.travelwebsite.com.tw</a>
+                    </li>
+                    <li class="mb-3">
+                        <i class="bi bi-geo-alt-fill text-primary me-2"></i>
+                        845 高雄市內門區大學路200號
+                    </li>
+                    <li class="mt-3 small">
+                        服務時間: 週一至週五 09:00 - 18:00
+                    </li>
+                </ul>
+            </div>
+            <hr class="border-secondary">
+            <div class="text-center small text-secondary">
+                &copy; 2025 Travel Website. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

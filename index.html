@@ -1,0 +1,511 @@
+﻿<!doctype html>
+<html lang="zh-tw">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Travel Website</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .top-bar {
+            font-size: 0.85rem;
+        }
+
+        footer {
+            margin-top: auto;
+        }
+
+        .carousel-item img {
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .hover-effect {
+            transition: all 0.3s ease-in-out;
+            border: 1px solid rgba(0,0,0,.125);
+        }
+
+            .hover-effect:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important;
+                border-color: #495057;
+            }
+
+        .search-tabs {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            background-color: #fff;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .search-tab-item {
+            flex: 1;
+            text-align: center;
+            padding: 15px 0;
+            cursor: pointer;
+            color: #666;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+            .search-tab-item:hover {
+                background-color: #f9f9f9;
+                color: #d32f2f;
+            }
+
+            .search-tab-item.active {
+                color: #d32f2f;
+                border-bottom: 3px solid #d32f2f;
+                font-weight: bold;
+            }
+
+        .custom-input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .custom-label {
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            background-color: #fff;
+            padding: 0 5px;
+            font-size: 0.85rem;
+            color: #d32f2f;
+            z-index: 2;
+            font-weight: bold;
+        }
+
+            .custom-label.text-gray {
+                color: #6c757d;
+            }
+
+        .form-control-custom {
+            width: 100%;
+            height: 50px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            padding: 10px 15px;
+            font-size: 1rem;
+            color: #333;
+            background-color: #fff;
+        }
+
+            .form-control-custom:focus {
+                outline: none;
+                border-color: #d32f2f;
+                box-shadow: 0 0 0 0.2rem rgba(211, 47, 47, 0.1);
+            }
+
+        .btn-search-red {
+            background-color: #d32f2f;
+            color: white;
+            width: 100%;
+            padding: 12px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+            .btn-search-red:hover {
+                background-color: #b71c1c;
+            }
+
+        .date-separator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d32f2f;
+            font-weight: bold;
+        }
+
+        .hot-links a {
+            color: #666;
+            text-decoration: none;
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+
+            .hot-links a:hover {
+                color: #d32f2f;
+                text-decoration: underline;
+            }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body top-bar" data-bs-theme="dark">
+        <div class="container">
+            <ul class="navbar-nav ms-auto flex-row">
+                <li class="nav-item"><a class="nav-link px-2" href="#"><i class="bi bi-facebook"></i> 粉絲專頁</a></li>
+                <li class="nav-item"><a class="nav-link px-2" href="login.html">會員登入</a></li>
+                <li class="nav-item"><a class="nav-link px-2" href="register.html">註冊</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-lg bg-primary navbar-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="bi bi-airplane-engines-fill"></i> Travel Website
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active fw-bold" href="index.html">首頁</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="about.html">關於我</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="feature.html">特色行程</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="price.html">價格方案</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="contact.html">聯絡我們</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-4">
+
+        <div id="travelCarousel" class="carousel slide position-relative rounded overflow-hidden shadow" data-bs-ride="carousel">
+
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#travelCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#travelCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#travelCarousel" data-bs-slide-to="2"></button>
+            </div>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="3000">
+                    <img src="images/travel 1.jpg" class="d-block w-100" alt="Travel 1">
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="images/travel 2.jpg" class="d-block w-100" alt="Travel 2">
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="images/travel 3.jpg" class="d-block w-100" alt="Travel 3">
+                </div>
+            </div>
+
+            <div class="d-none d-lg-block position-absolute top-50 start-50 translate-middle bg-white rounded shadow"
+                 style="width: 90%; max-width: 900px; z-index:10; opacity:0.98;">
+
+                <div class="search-tabs" id="searchTabs">
+                    <a href="javascript:void(0)" class="search-tab-item active" onclick="switchTab(this, '團體')"><i class="fas fa-flag"></i> 團體</a>
+                    <a href="javascript:void(0)" class="search-tab-item" onclick="switchTab(this, '國內')"><i class="fas fa-map-marked-alt"></i> 國內</a>
+                    <a href="javascript:void(0)" class="search-tab-item" onclick="switchTab(this, '遊輪')"><i class="fas fa-ship"></i> 遊輪</a>
+                    <a href="javascript:void(0)" class="search-tab-item" onclick="switchTab(this, '機票')"><i class="fas fa-plane"></i> 機票</a>
+                    <a href="javascript:void(0)" class="search-tab-item" onclick="switchTab(this, '飯店')"><i class="fas fa-hotel"></i> 飯店</a>
+                </div>
+
+                <div class="p-4">
+                    <form id="travelSearchForm">
+                        <div class="custom-input-group">
+                            <label class="custom-label" id="labelKeyword"><i class="fas fa-search"></i> 搜尋關鍵字</label>
+                            <input type="text" id="inputKeyword" class="form-control-custom" placeholder="輸入目的地或行程關鍵字">
+                        </div>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="custom-input-group">
+                                    <label class="custom-label text-gray">出發地</label>
+                                    <input type="text" id="inputDepart" class="form-control-custom" value="不拘">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="custom-input-group">
+                                    <label class="custom-label text-gray">旅遊目的地</label>
+                                    <input type="text" id="inputDest" class="form-control-custom" value="不拘">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row g-3 align-items-center">
+                            <div class="col-md-8">
+                                <div class="row g-0">
+                                    <div class="col-5">
+                                        <div class="custom-input-group mb-0">
+                                            <label class="custom-label text-gray">出發日期</label>
+                                            <input type="text" id="inputDateStart" class="form-control-custom" value="2026-01-05" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                        </div>
+                                    </div>
+                                    <div class="col-2 date-separator">—</div>
+                                    <div class="col-5">
+                                        <div class="custom-input-group mb-0">
+                                            <input type="text" id="inputDateEnd" class="form-control-custom" value="2026-01-08" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" class="btn-search-red h-100" onclick="showSearchResult()">
+                                    <i class="fas fa-search"></i> 搜 尋
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="hot-links mt-3 pt-2 border-top border-secondary-subtle">
+                            <span class="fw-bold text-danger me-2">熱門推薦:</span>
+                            <a href="#"><i class="fas fa-bolt text-danger"></i> 已成團</a>
+                            <a href="#"><i class="fas fa-plane text-primary"></i> 日本賞櫻</a>
+                            <a href="#"><i class="fas fa-snowflake text-info"></i> 北海道</a>
+                            <a href="#"><i class="fas fa-umbrella-beach text-warning"></i> 泰國</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#travelCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#travelCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+
+        <div class="d-lg-none mt-3">
+            <div class="card shadow-sm border-primary">
+                <div class="card-header bg-primary text-white text-center fw-bold">
+                    <i class="bi bi-search"></i> 行程搜尋
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="bi bi-geo-alt-fill"></i></span>
+                            <select class="form-select">
+                                <option selected>請選擇目的地...</option>
+                                <option>🇯🇵 日本</option>
+                                <option>🇰🇷 韓國</option>
+                                <option>🇪🇺 歐洲</option>
+                            </select>
+                        </div>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="bi bi-calendar-event"></i></span>
+                            <input type="date" class="form-control">
+                        </div>
+                        <button class="btn btn-warning w-100 fw-bold text-dark">搜尋</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <br><br>
+
+        <h3 class="text-center mb-4 text-primary fw-bold">熱門景點推薦</h3>
+        <div class="row justify-content-center g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm hover-effect">
+                    <img src="images/travel 4.jpg" class="card-img-top" alt="...">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">台灣阿里山之旅</h5>
+                        <p class="card-text text-secondary flex-grow-1">最吸引人的特色在於「五奇絕景」──日出、雲海、森林、鐵路與晚霞，搭配鄒族文化與茶園風光，讓旅人能同時感受自然壯麗與人文深度。</p>
+                        <a href="travel1.html" class="btn btn-outline-primary w-100 mt-auto">查看詳情</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm hover-effect">
+                    <img src="images/travel 10.jpg" class="card-img-top" alt="...">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">京都古都漫遊</h5>
+                        <p class="card-text text-secondary flex-grow-1">穿梭在千本鳥居與清水寺之間，感受日本傳統文化的靜謐。</p>
+                        <a href="#" class="btn btn-outline-primary w-100 mt-auto">查看詳情</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm hover-effect">
+                    <img src="images/travel 11.jpg" class="card-img-top" alt="...">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">冰島極光追逐</h5>
+                        <p class="card-text text-secondary flex-grow-1">一生必去一次的極光之旅，享受藍湖溫泉與壯麗冰川。</p>
+                        <a href="#" class="btn btn-outline-primary w-100 mt-auto">查看詳情</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm hover-effect">
+                    <img src="images/travel 8.jpg" class="card-img-top" alt="...">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">巴黎浪漫假期</h5>
+                        <p class="card-text text-secondary flex-grow-1">在艾菲爾鐵塔下野餐，參觀羅浮宮，品嚐最頂級的法式甜點。</p>
+                        <a href="#" class="btn btn-outline-primary w-100 mt-auto">查看詳情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-5 text-secondary">
+
+        <div class="row">
+            <div class="col-lg-8 col-12 mb-3">
+                <h4 class="mb-3 text-primary">常見問題 (FAQ)</h4>
+                <div class="accordion shadow-sm" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                <strong>Q1: 如何報名參加團體旅遊？</strong>
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                請先註冊會員，選擇您喜歡的行程後，點擊「立即報名」並完成線上付款即可。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-12">
+                <div class="p-4 bg-white border rounded shadow-sm">
+                    <h5 class="text-primary fw-bold mb-3">最新消息</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><i class="bi bi-megaphone text-warning me-2"></i> 冬季早鳥優惠開跑！</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="bg-dark text-white pt-5 pb-3 mt-5">
+        <div class="container"></div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-primary fw-bold mb-3">Travel Website</h5>
+                    <p class="text-secondary small">我們致力於提供最優質的國內外旅遊體驗。</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">網站導覽</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="about.html" class="text-decoration-none text-secondary hover-white">關於我們</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary hover-white">常見問題</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">聯絡我們</h5>
+                    <ul class="list-unstyled text-secondary">
+                        <li class="mb-3"><i class="bi bi-telephone-fill text-primary me-2 fs-5"></i> <span class="fw-bold text-white">07-6678888</span></li>
+                        <li class="mb-3"><i class="bi bi-envelope-fill text-primary me-2"></i> khus@travel.com</li>
+                        <li class="mb-3">
+                            <i class="bi bi-globe text-primary me-2"></i>
+                            <a href="#" class="text-secondary text-decoration-none footer-link">www.travelwebsite.com.tw</a>
+                        </li>
+                        <li class="mb-3">
+                            <i class="bi bi-geo-alt-fill text-primary me-2"></i>
+                            845 高雄市內門區大學路200號
+                        </li>
+                        <li class="mt-3 small">
+                            服務時間: 週一至週五 09:00 - 18:00
+                        </li>
+                    </ul>
+                </div>
+                <hr class="border-secondary">
+                <div class="text-center small text-secondary">
+                    &copy; 2025 Travel Website. All Rights Reserved.
+                </div>
+            </div>
+    </footer>
+
+    <div class="modal fade" id="resultModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title fw-bold" id="modalTitle">
+                        <i class="bi bi-search"></i> 搜尋結果
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                    <button type="button" class="btn btn-primary">前往搜尋結果頁</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // 目前選擇的旅遊類型 (預設為團體)
+        let currentType = '團體';
+
+        // 1. 頁籤切換功能
+        function switchTab(element, type) {
+            // 更新變數
+            currentType = type;
+
+            // 移除所有 active 樣式
+            const tabs = document.querySelectorAll('.search-tab-item');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // 為被點擊的項目加上 active
+            element.classList.add('active');
+
+            // [互動特效] 根據類型改變輸入框提示文字
+            const keywordInput = document.getElementById('inputKeyword');
+            if (type === '飯店') {
+                keywordInput.placeholder = '請輸入飯店名稱或城市...';
+            } else if (type === '機票') {
+                keywordInput.placeholder = '請輸入機場代碼或城市...';
+            } else {
+                keywordInput.placeholder = '輸入目的地或行程關鍵字';
+            }
+        }
+
+        // 2. 顯示搜尋結果功能
+        function showSearchResult() {
+            // 取得輸入值
+            const keyword = document.getElementById('inputKeyword').value.trim() || '未填寫';
+            const depart = document.getElementById('inputDepart').value;
+            const dest = document.getElementById('inputDest').value;
+            const dateStart = document.getElementById('inputDateStart').value;
+            const dateEnd = document.getElementById('inputDateEnd').value;
+
+            // 組合顯示內容
+            const resultHtml = `
+                        <div class="alert alert-light border">
+                            <p class="mb-2"><strong>旅遊類型：</strong> <span class="badge bg-danger">${currentType}</span></p>
+                            <p class="mb-2"><strong>關鍵字：</strong> ${keyword}</p>
+                            <hr>
+                            <div class="row">
+                                <div class="col-6"><small class="text-muted">出發地</small><br><strong>${depart}</strong></div>
+                                <div class="col-6"><small class="text-muted">目的地</small><br><strong>${dest}</strong></div>
+                            </div>
+                            <div class="mt-3">
+                                <small class="text-muted">日期區間</small><br>
+                                <strong>${dateStart}</strong> 至 <strong>${dateEnd}</strong>
+                            </div>
+                        </div>
+                        <p class="text-center text-muted small">正在為您搜尋符合條件的行程...</p>
+                    `;
+
+            // 設定 Modal 內容
+            document.getElementById('modalBody').innerHTML = resultHtml;
+
+            // 顯示 Modal
+            const myModal = new bootstrap.Modal(document.getElementById('resultModal'));
+            myModal.show();
+        }
+    </script>
+</body>
+</html>
